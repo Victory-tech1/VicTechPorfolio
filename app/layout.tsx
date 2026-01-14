@@ -3,7 +3,7 @@ import { Montserrat, Jura } from "next/font/google";
 import "./globals.css";
 
 const mont = Montserrat({
-  variable: "--font-mono",
+  variable: "--font-mont",
   subsets: ["latin"],
 });
 
@@ -13,8 +13,8 @@ const jura = Jura({
 });
 
 export const metadata: Metadata = {
-  title: "Victory Tech Portfolio",
-  description: "Visit Victory Tech's portfolio website",
+  title: "VicTech Portfolio",
+  description: "Visit VicTech's portfolio website",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${mont.variable} ${jura.variable} antialiased`}
+        className={`${mont.variable} ${jura.variable} antialiased app-bg`}
       >
         {children}
       </body>
