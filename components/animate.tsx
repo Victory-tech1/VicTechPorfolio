@@ -1,24 +1,30 @@
-"use client"
+"use client";
 
-import { motion, MotionProps } from "framer-motion"
+import { motion, type MotionProps } from "framer-motion";
+import type { ElementType, ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
-type AnimateProps = MotionProps & {
-  as?: keyof JSX.IntrinsicElements
-  className?: string
-  children: React.ReactNode
-}
+type AnimateProps<T extends ElementType = "div"> = MotionProps & {
+  as?: T;
+  className?: string;
+  children?: ReactNode;
+};
 
-export default function Animate({
-  as = "div",
-  children,
-  className,
-  ...motionProps
-}: AnimateProps) {
-  const MotionComponent = motion[as as keyof typeof motion]
+export default function Animate<T extends ElementType = "div">(
+  props: AnimateProps<T>
+) {
+  const {
+    as,
+    className,
+    children,
+    ...motionProps
+  } = props;
+
+  const Component = as ? motion(as) : motion.div;
 
   return (
-    <MotionComponent className={className} {...motionProps}>
+    <Component className={cn(className)} {...motionProps}>
       {children}
-    </MotionComponent>
-  )
+    </Component>
+  );
 }
