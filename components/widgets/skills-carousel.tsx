@@ -3,7 +3,7 @@ import React from "react"
 
 import { motion } from "framer-motion"
 
-const skills: Array = [
+const skills: string[] = [
 	'HTML',
 	'CSS',
 	'Javascript',

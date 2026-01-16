@@ -61,10 +61,14 @@ export function CarouselPlugin() {
   );
 }
 
-function QualityCard( props ) {
+type Props = {
+	text: string
+}
+
+function QualityCard({ text }: Props ) {
 	return (
 		<div className='text-white glass font-jura py-2 px-4'>
-			<p className="text-justify text-glow">{props.text}</p>
+			<p className="text-justify text-glow">{text}</p>
 		</div>
 	);
 }
